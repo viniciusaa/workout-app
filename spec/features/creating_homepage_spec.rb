@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Creating homepage", :type => :feature do
+RSpec.feature "Creating Homepage", :type => :feature do
   scenario "A user enter the home page" do
     visit "/"
     expect(page).to have_link("Home")
