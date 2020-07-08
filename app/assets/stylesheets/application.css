@@ -26,6 +26,10 @@
   margin-top: 3%;
 }
 
+hr {
+  background-color: black;
+}
+
 /* navbar background color */
 .navbar-custom {
   background-color: #e3a509;
@@ -58,13 +62,13 @@
   border-color: #ffffff;
 }
 
-/* .sspace {
+.sspace {
   margin-bottom: 1%;
 }
 
 .space {
   margin-bottom: 3%;
-} */
+}
 
 .mspace {
   margin-bottom: 5%;
