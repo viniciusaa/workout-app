@@ -14,6 +14,8 @@ RSpec.feature "Sign In", :type => :feature do
     click_button "Log in"
 
     expect(page).to have_content("Signed in successfully.")
+    expect(page).to_not have_content("Login")
+    expect(page).to_not have_content("Signup")
   end
 
   scenario "Whit invalid credentials" do
