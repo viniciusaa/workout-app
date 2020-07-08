@@ -18,16 +18,8 @@
   text-align: center;
 }
 
-.error {
-  color: red;
-}
-
 .body-margin {
   margin-top: 3%;
-}
-
-hr {
-  background-color: black;
 }
 
 /* navbar background color */
@@ -43,13 +35,13 @@ hr {
 
 /* navbar link color */
 .navbar-custom .navbar-nav .nav-link {
-  color: rgba(255,255,255,.5);
+  color: rgba(255,255,255,.6);
 }
 
 /* navbar color of active or hovered links */
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
-  color: #ffffff;
+  color: #ff5e00;
 }
 
 /* navbar color of toggler button */
@@ -62,6 +54,7 @@ hr {
   border-color: #ffffff;
 }
 
+/* Different margin sizes */
 .sspace {
   margin-bottom: 1%;
 }
@@ -74,7 +67,7 @@ hr {
   margin-bottom: 5%;
 }
 
-/* .xspace {
+.xspace {
   margin-bottom: 10%;
 }
 
@@ -88,4 +81,17 @@ hr {
 
 .button-spacing {
   margin-right: 5px;
-} */
+}
+
+/* Devise error messages */
+#error_explanation {
+  background-color: #f2dede;
+  color: red;
+  text-align: left;
+  padding: 5px 20px;
+  margin-bottom: 30px
+}
+
+#error_explanation h2 {
+  font-size: 150%;
+}
