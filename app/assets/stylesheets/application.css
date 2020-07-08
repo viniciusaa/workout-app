@@ -38,6 +38,12 @@
   color: rgba(255,255,255,.6);
 }
 
+.navbar-custom p {
+  color: rgba(255,255,255,.6);
+  line-height:40px;
+  margin:0;
+}
+
 /* navbar color of active or hovered links */
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
@@ -79,8 +85,8 @@
   margin-top: 5%;
 }
 
-.button-spacing {
-  margin-right: 5px;
+.space-right {
+  margin-right: 6px;
 }
 
 /* Devise error messages */
