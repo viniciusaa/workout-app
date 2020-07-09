@@ -1,0 +1,50 @@
+<%= form_for([current_user, @exercise]) do |f| %>
+
+  <% if @exercise.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <% pluralize(@exercise.errors.count, "error") %>
+        prohibited this exercise from being saved:
+      </h2>
+      <ul>
+        <% @exercise.errors.full_messages.each do |message| %>
+          <%= @message %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="space">
+   <div class="row col-12">
+     <b><%= f.label :duration_in_min, "Duration (min)" %></b>
+   </div>
+
+   <div class="row col-md-8 col-lg-6">
+     <%= f.number_field :duration_in_min, class: "form-control" %>
+   </div>
+ </div>
+
+ <div class="space">
+   <div class="row col-12">
+     <b><%= f.label :workout, "Workout details" %></b>
+   </div>
+
+   <div class="row col-md-8 col-lg-6">
+     <%= f.text_area :workout, class: "form-control", rows: "10" %>
+   </div>
+ </div>
+
+ <div class="space">
+   <div class="row col-12">
+     <b><%= f.label :workout_date, "Activity date" %></b>
+   </div>
+
+   <div class="row col-md-8 col-lg-6">
+     <%= f.text_field :workout_date, class: "form-control" %>
+   </div>
+ </div>
+
+ <div class="row col-12 mspace">
+   <%= f.submit, class: "btn btn-success" %>
+ </div>
+<% end %>
