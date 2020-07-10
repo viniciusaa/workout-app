@@ -1,10 +1,12 @@
 require "rails_helper"
 
 RSpec.feature "Sign Up", :type => :feature do
-  scenario "Whit valid credentials" do
+  before do
     visit "/"
     click_link "Signup"
-
+  end
+  
+  scenario "Whit valid credentials" do
     fill_in "Email", with: "test@example.com"
     fill_in "Password", with: "123456"
     fill_in "Password confirmation", with: "123456"
@@ -14,9 +16,6 @@ RSpec.feature "Sign Up", :type => :feature do
   end
 
   scenario "Whit invalid credentials" do
-    visit "/"
-    click_link "Signup"
-
     fill_in "Email", with: ""
     fill_in "Password", with: ""
     fill_in "Password confirmation", with: ""

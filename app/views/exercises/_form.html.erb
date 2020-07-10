@@ -1,22 +1,9 @@
+<%= render "shared/errors", obj: @exercise %>
+
 <%= form_for([current_user, @exercise]) do |f| %>
-
-  <% if @exercise.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <% pluralize(@exercise.errors.count, "error") %>
-        prohibited this exercise from being saved:
-      </h2>
-      <ul>
-        <% @exercise.errors.full_messages.each do |message| %>
-          <%= @message %>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="space">
     <div class="row col-12">
-      <b><%= f.label :duration_in_min, "Duration (min)" %></b>
+      <b><%= f.label :duration_in_min, "Duration (minutes)" %></b>
     </div>
 
     <div class="row col-md-8 col-lg-6">
@@ -26,7 +13,7 @@
 
   <div class="space">
     <div class="row col-12">
-      <b><%= f.label :workout, "Workout details" %></b>
+      <b><%= f.label :workout %></b>
     </div>
 
     <div class="row col-md-8 col-lg-6">
@@ -36,7 +23,7 @@
 
   <div class="space">
     <div class="row col-12">
-      <b><%= f.label :workout_date, "Activity date" %></b>
+      <b><%= f.label :workout_date %></b>
     </div>
 
     <div class="row col-md-8 col-lg-6">
