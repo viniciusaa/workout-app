@@ -1,3 +1,15 @@
-<h1>Exercise: <%= @exercise.workout %></h1>
-<h1>Duration: <%= @exercise.duration_in_min %></h1>
-<h1>Date: <%= @exercise.workout_date %></h1>
+<div class="container">
+  <div class="row col-12 space">
+    <div class="card text-white bg-primary col-md-10 col-sm-12">
+      <div class="card-header">
+        <p>Exercise details: <b><%= @exercise.workout %></b></p>
+        <p>Duration: <b><%= @exercise.duration_in_min %> minutes</b></p>
+        <p>Date: <b><%= @exercise.workout_date %></b></p>
+      </div>
+      <div class="card-body">
+        <u><%= link_to "Edit", edit_user_exercise_path(current_user, @exercise),
+                               class: "text-white"%></u>
+      </div>
+    </div>
+  </div>
+</div>

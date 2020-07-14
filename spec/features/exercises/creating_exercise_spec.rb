@@ -10,7 +10,7 @@ RSpec.feature "Creating exercise", :type => :feature do
     click_link "New Workout"
   end
 
-  scenario "Whit valid inputs" do
+  scenario "With valid inputs" do
     fill_in "Duration", with: 70
     fill_in "Workout", with: "Weight lifting"
     fill_in "Workout date", with: "2016-07-26"
@@ -21,7 +21,7 @@ RSpec.feature "Creating exercise", :type => :feature do
     expect(current_path).to eq(user_exercise_path(@user, Exercise.last))
   end
 
-  scenario "Whit invalid inputs" do
+  scenario "With invalid inputs" do
     fill_in "Duration", with: ""
     fill_in "Workout", with: ""
     fill_in "Workout date", with: ""

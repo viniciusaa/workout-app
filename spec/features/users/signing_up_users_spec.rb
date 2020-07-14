@@ -5,8 +5,8 @@ RSpec.feature "Sign Up", :type => :feature do
     visit "/"
     click_link "Signup"
   end
-  
-  scenario "Whit valid credentials" do
+
+  scenario "With valid credentials" do
     fill_in "Email", with: "test@example.com"
     fill_in "Password", with: "123456"
     fill_in "Password confirmation", with: "123456"
@@ -15,7 +15,7 @@ RSpec.feature "Sign Up", :type => :feature do
     expect(page).to have_content("You have signed up successfully.")
   end
 
-  scenario "Whit invalid credentials" do
+  scenario "With invalid credentials" do
     fill_in "Email", with: ""
     fill_in "Password", with: ""
     fill_in "Password confirmation", with: ""

@@ -1,1 +1,36 @@
-<%= link_to "New Workout", new_user_exercise_path(current_user), class: "btn btn-success link" %>
+<div class="container">
+  <div class="row col-12 xspace">
+    <%= link_to "New Workout", new_user_exercise_path(current_user), class: "btn btn-success link" %>
+  </div>
+
+  <% if @exercises.any? %>
+    <div class="row col-12 space">
+      <h3>All Workouts:</h3>
+    </div>
+
+    <% @exercises.each do |exercise| %>
+      <div class="row col-12 space">
+        <div class="card text-white bg-primary col-md-10 col-sm-12">
+          <div class="card-header">
+            <p>Exercise details: <b><%= exercise.workout %></b></p>
+            <p>Duration: <b><%= exercise.duration_in_min %> minutes</b></p>
+            <p>Date: <b><%= exercise.workout_date %></b></p>
+          </div>
+          <div class="card-body">
+            <u><%= link_to "Display", user_exercise_path(current_user, exercise),
+                                      class: "text-white"%></u>
+            -
+            <u><%= link_to "Edit", edit_user_exercise_path(current_user, exercise),
+                                   class: "text-white"%></u>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <h3>There are no exercises do display</h3>
+  <% end %>
+
+  <div class="row col-12 space-top">
+    <%= link_to "Back", root_path, class: "btn btn-success link" %>
+  </div>
+</div>

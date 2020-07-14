@@ -7,7 +7,7 @@ RSpec.feature "Sign In", :type => :feature do
     click_link "Login"
   end
 
-  scenario "Whit valid credentials" do
+  scenario "With valid credentials" do
     fill_in "Email", with: @user.email
     fill_in "Password", with: @user.password
     click_button "Log in"
@@ -17,7 +17,7 @@ RSpec.feature "Sign In", :type => :feature do
     expect(page).to_not have_content("Signup")
   end
 
-  scenario "Whit invalid credentials" do
+  scenario "With invalid credentials" do
     fill_in "Email", with: ""
     fill_in "Password", with: ""
     click_button "Log in"
