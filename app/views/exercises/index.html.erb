@@ -22,15 +22,21 @@
             -
             <u><%= link_to "Edit", edit_user_exercise_path(current_user, exercise),
                                    class: "text-white"%></u>
+            -
+            <u><%= link_to "Delete", user_exercise_path(current_user, exercise),
+                                     method: :delete, data: {confirm: "Are you sure?"},
+                                     class: "text-white"%></u>
           </div>
         </div>
       </div>
     <% end %>
   <% else %>
-    <h3>There are no exercises do display</h3>
+    <div class="row col-12 xspace">
+      <h3>There are no exercises do display</h3>
+    </div>
   <% end %>
 
-  <div class="row col-12 space-top">
+  <div class="row col-12 xspace-top">
     <%= link_to "Back", root_path, class: "btn btn-success link" %>
   </div>
 </div>

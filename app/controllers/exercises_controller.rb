@@ -1,5 +1,5 @@
 class ExercisesController < ApplicationController
-  before_action :select_exercise, only: [:edit, :update, :show]
+  before_action :select_exercise, except: [:index, :new, :create]
 
 
   def index
@@ -34,6 +34,12 @@ class ExercisesController < ApplicationController
   end
 
   def show; end
+
+  def destroy
+    @exercise.destroy
+    flash[:notice] = "Exercise was successfully deleted"
+    redirect_to user_exercises_path(current_user)
+  end
 
   private
 

@@ -1,2 +1,7 @@
-<%= render "shared/title", title: "New Exercise for #{current_user.full_name}", subtitle: "" %>
+<%= render "shared/title", title: "Add New Exercise", subtitle: "" %>
 <%= render "form" %>
+<div class="container">
+  <div class="row col-12 xspace-top">
+    <%= link_to "Back", user_exercises_path(current_user), class: "btn btn-success link" %>
+  </div>
+</div>
