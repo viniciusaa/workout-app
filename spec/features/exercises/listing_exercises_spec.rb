@@ -9,7 +9,7 @@ RSpec.feature "Listing exercises", :type => :feature do
   scenario "With existing exercises" do
     @exercise = create(:exercise, user: @user)
     @second_exercise = create(:exercise, user: @user)
-    @third_exercise = create(:exercise, user: @user, created_at: "2001-01-01 01:01:01")
+    @third_exercise = create(:exercise, user: @user, created_at: 7.days.ago)
 
     visit "/"
     click_link "My Lounge"
