@@ -13,7 +13,6 @@ RSpec.feature "Creating exercise", :type => :feature do
   scenario "With valid inputs" do
     fill_in "Duration", with: 70
     fill_in "Workout", with: "Weight lifting"
-    fill_in "Workout date", with: "2016-07-26"
     click_button "Create Exercise"
 
     expect(page).to have_content("Exercise has been created")
@@ -24,13 +23,11 @@ RSpec.feature "Creating exercise", :type => :feature do
   scenario "With invalid inputs" do
     fill_in "Duration", with: ""
     fill_in "Workout", with: ""
-    fill_in "Workout date", with: ""
     click_button "Create Exercise"
 
     expect(page).to have_content("Failed to created exercise")
     expect(page).to have_content("Duration in min is not a number")
     expect(page).to have_content("Workout can't be blank")
     expect(page).to have_content("Workout is too short (minimum is 3 characters)")
-    expect(page).to have_content("Workout date can't be blank")
   end
 end

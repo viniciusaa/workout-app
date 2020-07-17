@@ -13,7 +13,7 @@ RSpec.feature "Displaying exercise", :type => :feature do
     click_link "Display"
 
     expect(page).to have_content(@exercise.workout)
-    expect(page).to have_content(@exercise.workout_date)
     expect(page).to have_content(@exercise.duration_in_min)
+    expect(page).to have_content(@exercise.created_at.to_date)
   end
 end

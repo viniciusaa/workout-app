@@ -14,7 +14,8 @@
           <div class="card-header">
             <p>Exercise details: <b><%= exercise.workout %></b></p>
             <p>Duration: <b><%= exercise.duration_in_min %> minutes</b></p>
-            <p>Date: <b><%= exercise.workout_date %></b></p>
+            <p class="close-distance">Date: <b><%= exercise.created_at.to_date %></b></p>
+            <small><p class="close-distance">Expires in one week</p></small>
           </div>
           <div class="card-body">
             <u><%= link_to "Display", user_exercise_path(current_user, exercise),
