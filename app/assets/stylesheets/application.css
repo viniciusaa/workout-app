@@ -109,3 +109,14 @@
 .close-distance {
   margin-bottom: 0;
 }
+
+.user-icon {
+  font-size: 125%;
+  margin-top: -10px;
+}
+
+.close-icon {
+  font-size: 125%;
+  margin-top: -10px;
+  color: red;
+}
