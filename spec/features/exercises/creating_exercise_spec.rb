@@ -16,7 +16,7 @@ RSpec.feature "Creating exercise", :type => :feature do
     click_button "Create Exercise"
 
     expect(page).to have_content("Exercise has been created")
-    expect(page).to have_content("Weight lifting")
+    expect(page).to have_content("weight lifting")
     expect(current_path).to eq(user_exercise_path(@user, Exercise.last))
   end
 

@@ -13,11 +13,11 @@ RSpec.feature "Editing exercise", :type => :feature do
 
   scenario "With valid inputs" do
     fill_in "Duration", with: 70
-    fill_in "Workout", with: "Updated Exercise"
+    fill_in "Workout", with: "Updated exercise"
     click_button "Update Exercise"
 
     expect(page).to have_content("Exercise has been updated")
-    expect(page).to have_content("Updated Exercise")
+    expect(page).to have_content("updated exercise")
     expect(current_path).to eq(user_exercise_path(@user, Exercise.last))
   end
 

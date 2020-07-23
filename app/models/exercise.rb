@@ -1,7 +1,7 @@
 class Exercise < ApplicationRecord
   validates :duration_in_min, numericality: { greater_than: 0.0 }
   validates :workout, presence: true, length: { minimum: 3, maximum: 200 }
-  before_save :capitalize_workout
+  before_save :downcase_workout
 
   belongs_to :user
 
@@ -12,11 +12,11 @@ class Exercise < ApplicationRecord
 
   def self.search(search)
     if !search.blank?
-      where("workout like ?", "%#{search.capitalize!}%")
+      where("workout like ?", "%#{search.downcase}%")
     end
   end
 
-  def capitalize_workout
-    self.workout.capitalize!
+  def downcase_workout
+    self.workout.downcase!
   end
 end
