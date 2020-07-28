@@ -3,9 +3,9 @@
     <%= link_to "New Workout", new_user_exercise_path(current_user), class: "btn btn-success link" %>
   </div>
 
-  <%= render "search_box", path: user_exercises_path(current_user) %>
-
   <% if @exercises.any? %>
+    <%= render "search_box", path: user_exercises_path(current_user) %>
+    
     <div class="row col-12 space center">
       <h3>All Workouts:</h3>
     </div>
