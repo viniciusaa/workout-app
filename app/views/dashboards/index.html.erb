@@ -1,2 +1,17 @@
 <%= render "shared/title", title: "Workout Lounge!",
                            subtitle: "Show off your workout to your friends and family" %>
+
+<div class="container">
+
+  <div class="row col-12 space">
+    <h2>List of members</h2>
+  </div>
+
+  <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-10 sspace">
+        <%= user.full_name %>
+      </div>
+    <% end %>
+  </div>
+</div>
