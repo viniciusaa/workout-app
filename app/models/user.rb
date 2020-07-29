@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   has_many :exercises
 
+  validates :first_name, presence: true, length: { minimum: 2, maximum: 20 }
+  validates :last_name, presence: true, length: { minimum: 2, maximum: 20 }
+
   def full_name
     "#{first_name} #{last_name}"
   end
