@@ -3,11 +3,15 @@
 
 <div class="container">
 
-  <div class="row col-12 space">
+  <div class="row col-12 mspace">
     <h2>List of members</h2>
   </div>
 
-  <div class="row">
+  <div class="row col-12 sspace">
+    <%= will_paginate @users %>
+  </div>
+
+  <div class="row col-12">
     <% @users.each do |user| %>
       <div class="col-10 sspace">
         <%= user.full_name %>
