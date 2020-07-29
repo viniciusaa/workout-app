@@ -12,8 +12,8 @@ RSpec.feature "Search for exercises", :type => :feature do
     visit "/"
     click_link "My Lounge"
 
-    fill_in "search", with: "test"
-    click_button "Search"
+    fill_in "search_exercise", with: "test"
+    click_button "Search exercise"
 
     expect(page).to have_content(@exercise.workout).twice
     expect(page).to have_content(@second_exercise.workout).twice
@@ -23,8 +23,8 @@ RSpec.feature "Search for exercises", :type => :feature do
     visit "/"
     click_link "My Lounge"
 
-    fill_in "search", with: "first"
-    click_button "Search"
+    fill_in "search_exercise", with: "first"
+    click_button "Search exercise"
 
     expect(page).to have_content(@exercise.workout).twice
     expect(page).not_to have_content(@second_exercise.workout).twice
@@ -34,8 +34,8 @@ RSpec.feature "Search for exercises", :type => :feature do
     visit "/"
     click_link "My Lounge"
 
-    fill_in "search", with: "aaa"
-    click_button "Search"
+    fill_in "search_exercise", with: "aaa"
+    click_button "Search exercise"
 
     expect(page).to have_content("Exercise not found!")
   end

@@ -11,7 +11,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <big><b><%= link_to "Home", root_path, class:"nav-link" %></b></big>
+        <big><b><%= link_to "Home", root_path, class:"nav-link space-right" %></b></big>
+      </li>
+      <li class="nav-item form-inline">
+        <%= form_tag(search_dashboards_path, class: "navbar-form navbar-left", role: "search") do %>
+          <%= text_field_tag :search_name, nil, placeholder: "Search for friends", class: "form-control" %>
+          <%= submit_tag "Search", class: "btn btn-outline-light space-right" %>
+        <% end %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#"

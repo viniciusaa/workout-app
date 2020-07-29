@@ -10,9 +10,9 @@ class Exercise < ApplicationRecord
     .order(created_at: :desc)
   }
 
-  def self.search(search)
-    if !search.blank?
-      where("workout like ?", "%#{search.downcase}%")
+  def self.search_exercise(search_exercise)
+    if !search_exercise.blank?
+      where("workout like ?", "%#{search_exercise.downcase}%")
     end
   end
 

@@ -3,7 +3,7 @@ class ExercisesController < ApplicationController
 
   def index
     @exercises = current_user.exercises.paginate(page: params[:page], per_page: 3)
-    @search = current_user.exercises.search(params[:search])
+    @search = current_user.exercises.search_exercise(params[:search_exercise])
   end
 
   def new
