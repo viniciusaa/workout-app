@@ -10,11 +10,20 @@
     <%= will_paginate @users %>
   </div>
 
-  <div class="row col-12">
+  <div class="col-12">
     <% @users.each do |user| %>
-      <div class="col-10 sspace">
-        <%= user.full_name %>
-      </div>
+        <div class="card bg-light col-10 space">
+          <div class="card-body row">
+            <div class="col-9">
+              <%= user.full_name %>
+            </div>
+            <div class="col-3">
+              <% if current_user && !(current_user.follows_or_same?(user)) %>
+                <%= link_to "Follow", friendships_path(friend_id: user.id), method: :post, class: "btn btn-success follow-button" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
     <% end %>
   </div>
 </div>
