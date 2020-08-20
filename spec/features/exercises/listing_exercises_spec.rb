@@ -29,6 +29,6 @@ RSpec.feature "Listing exercises", :type => :feature do
     visit "/"
     click_link "My Lounge"
 
-    expect(page).to have_content("There are no exercises do display")
+    expect(page).to have_content("There are no workouts do display")
   end
 end

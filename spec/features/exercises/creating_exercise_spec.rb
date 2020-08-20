@@ -7,7 +7,7 @@ RSpec.feature "Creating exercise", :type => :feature do
 
     visit "/"
     click_link "My Lounge"
-    click_link "New Workout"
+    click_link "Create first Workout"
   end
 
   scenario "With valid inputs" do

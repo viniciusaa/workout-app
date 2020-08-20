@@ -13,6 +13,6 @@ RSpec.feature "Deleting exercise", :type => :feature do
     click_link "Delete"
 
     expect(page).to have_content("Exercise was successfully deleted")
-    expect(page).to have_content("There are no exercises do display")
+    expect(page).to have_content("There are no workouts do display")
   end
 end
