@@ -1,49 +1,80 @@
-<div class="container">
-  <div class="row col-12 xspace">
-    <%= link_to "New Workout", new_user_exercise_path(current_user), class: "btn btn-success link" %>
-  </div>
+<div class="row">
+  <div class="row col-md-6 xspace">
+    <% if @exercises.any? %>
+      <div class="row col-12 xspace center">
+        <h3>All Workouts:</h3>
+      </div>
 
-  <% if @exercises.any? %>
-    <%= render "search_box", path: user_exercises_path(current_user) %>
-    
-    <div class="row col-12 space center">
-      <h3>All Workouts:</h3>
-    </div>
-
-    <div class="row col-7 offset-3 space">
-      <%= will_paginate @recipes %>
-    </div>
-
-    <% @exercises.each do |exercise| %>
       <div class="row col-12 space">
-        <div class="card text-white bg-primary col-md-10 col-sm-12">
-          <div class="card-header">
-            <p>Exercise details: <b><%= exercise.workout %></b></p>
-            <p>Duration: <b><%= exercise.duration_in_min %> minutes</b></p>
-            <p class="close-distance">Date: <b><%= exercise.created_at.to_date %></b></p>
-            <small><p class="close-distance">Expires in <%= time_to_expire(exercise) %></p></small>
-          </div>
-          <div class="card-body">
-            <b><u><%= link_to "Display", user_exercise_path(current_user, exercise),
-                                      class: "text-white"%></u></b>
-            -
-            <b><u><%= link_to "Edit", edit_user_exercise_path(current_user, exercise),
-                                   class: "text-white"%></u></b>
-            -
-            <b><u><%= link_to "Delete", user_exercise_path(current_user, exercise),
-                                     method: :delete, data: {confirm: "Are you sure?"},
+        <%= link_to "New Workout", new_user_exercise_path(current_user), class: "btn btn-success link" %>
+      </div>
+
+      <%= render "search_box", path: user_exercises_path(current_user) %>
+
+      <div class="row col-7 offset-3 space">
+        <%= will_paginate @exercises, :param_name => 'exercises_page' %>
+      </div>
+
+      <% @exercises.each do |exercise| %>
+        <div class="row col-12 space">
+          <div class="card text-white bg-primary col-12">
+            <div class="card-header">
+              <p>Exercise details: <b><%= exercise.workout %></b></p>
+              <p>Duration: <b><%= exercise.duration_in_min %> minutes</b></p>
+              <p class="close-distance">Date: <b><%= exercise.created_at.to_date %></b></p>
+              <small><p class="close-distance">Expires in <%= time_to_expire(exercise) %></p></small>
+            </div>
+            <div class="card-body">
+              <b><u><%= link_to "Display", user_exercise_path(current_user, exercise),
+                                        class: "text-white"%></u></b>
+              -
+              <b><u><%= link_to "Edit", edit_user_exercise_path(current_user, exercise),
                                      class: "text-white"%></u></b>
+              -
+              <b><u><%= link_to "Delete", user_exercise_path(current_user, exercise),
+                                       method: :delete, data: {confirm: "Are you sure?"},
+                                       class: "text-white"%></u></b>
+            </div>
           </div>
         </div>
+      <% end %>
+    <% else %>
+      <div class="row col-12 xspace">
+        <h3>There are no workouts do display</h3>
+      </div>
+      <div class="row col-12 xspace">
+        <%= link_to "Create first Workout", new_user_exercise_path(current_user), class: "btn btn-success link" %>
       </div>
     <% end %>
-  <% else %>
-    <div class="row col-12 xspace">
-      <h3>There are no exercises do display</h3>
-    </div>
-  <% end %>
-
-  <div class="row col-12 xspace-top">
-    <%= link_to "Back", root_path, class: "btn btn-success link" %>
   </div>
+
+<!-- Friends list -->
+
+  <div class="offset-lg-1 col-lg-5 col-md-6 xspace">
+    <h3 class="xspace">My Friends</h3>
+    <% if current_user.friends.any? %>
+      <div class="row col-7 offset-3 space">
+        <%= will_paginate @friends, :param_name => 'friends_page' %>
+      </div>
+
+      <% @friends.each do |friend| %>
+        <div class="card bg-light col-10 space">
+          <div class="card-body row">
+            <div class="col-9">
+              <%= friend.full_name %>
+            </div>
+            <div class="col-3">
+              <%= link_to "unfollow", "#", class: "btn btn-danger follow-button" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No friends to display</p>
+    <% end %>
+  </div>
+</div>
+
+<div class="row col-12">
+  <%= link_to "Back", root_path, class: "btn btn-success link" %>
 </div>

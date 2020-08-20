@@ -31,7 +31,7 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-  def follows_or_same?(new_friend)
-    friendships.map(&:friend).include?(new_friend) || self == new_friend
+  def follows?(new_friend)
+    friendships.map(&:friend).include?(new_friend)
   end
 end

@@ -1,24 +1,22 @@
-<div class="container">
-  <div class="row col-12 space xspace-top">
-    <div class="card text-white bg-primary col-md-10 col-sm-12">
-      <div class="card-header">
-        <p>Exercise details: <b><%= @exercise.workout %></b></p>
-        <p>Duration: <b><%= @exercise.duration_in_min %> minutes</b></p>
-        <p class="close-distance">Date: <b><%= @exercise.created_at.to_date %></b></p>
-        <small><p class="close-distance">Expires in  <%= time_to_expire(@exercise) %></p></small>
-      </div>
-      <div class="card-body">
-        <u><%= link_to "Edit", edit_user_exercise_path(current_user, @exercise),
+<div class="row col-12 space xspace-top">
+  <div class="card text-white bg-primary col-md-10 col-sm-12">
+    <div class="card-header">
+      <p>Exercise details: <b><%= @exercise.workout %></b></p>
+      <p>Duration: <b><%= @exercise.duration_in_min %> minutes</b></p>
+      <p class="close-distance">Date: <b><%= @exercise.created_at.to_date %></b></p>
+      <small><p class="close-distance">Expires in  <%= time_to_expire(@exercise) %></p></small>
+    </div>
+    <div class="card-body">
+      <u><%= link_to "Edit", edit_user_exercise_path(current_user, @exercise),
+                             class: "text-white"%></u>
+      -
+      <u><%= link_to "Delete", user_exercise_path(current_user, @exercise),
+                               method: :delete, data: {confirm: "Are you sure?"},
                                class: "text-white"%></u>
-        -
-        <u><%= link_to "Delete", user_exercise_path(current_user, @exercise),
-                                 method: :delete, data: {confirm: "Are you sure?"},
-                                 class: "text-white"%></u>
-      </div>
     </div>
   </div>
+</div>
 
-  <div class="row col-12 xspace-top">
-    <%= link_to "Back", user_exercises_path(current_user), class: "btn btn-success link" %>
-  </div>
+<div class="row col-12 xspace-top">
+  <%= link_to "Back", user_exercises_path(current_user), class: "btn btn-success link" %>
 </div>

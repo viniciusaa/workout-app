@@ -13,10 +13,11 @@ RSpec.feature "Following friends", :type => :feature do
 
     expect(page).to have_content(@user.full_name)
     expect(page).to have_content(@second_user.full_name)
-    expect(page).not_to have_link("Follow", :href => "/friendships?friend_id=#{@user.id}")
-    expect(page).to have_link("Follow", :href => "/friendships?friend_id=#{@second_user.id}")
+    expect(page).not_to have_link("follow", :href => "/friendships?friend_id=#{@user.id}")
+    expect(page).to have_link("follow", :href => "/friendships?friend_id=#{@second_user.id}")
     find("a[href='/friendships?friend_id=#{@second_user.id}']").click
-    
-    expect(page).not_to have_link("Follow", :href => "/friendships?friend_id=#{@second_user.id}")
+
+    expect(page).not_to have_link("follow", :href => "/friendships?friend_id=#{@second_user.id}")
+    expect(page).to have_link("unfollow")
   end
 end

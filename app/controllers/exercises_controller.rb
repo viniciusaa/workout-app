@@ -2,7 +2,8 @@ class ExercisesController < ApplicationController
   before_action :select_exercise, except: [:index, :new, :create]
 
   def index
-    @exercises = current_user.exercises.paginate(page: params[:page], per_page: 3)
+    @exercises = current_user.exercises.paginate(page: params[:exercises_page], per_page: 5)
+    @friends = current_user.friends.paginate(page: params[:friends_page], per_page: 10)
     @search = current_user.exercises.search_exercise(params[:search_exercise])
   end
 

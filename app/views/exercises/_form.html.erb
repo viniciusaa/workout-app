@@ -1,28 +1,26 @@
-<div class="container">
-  <%= render "shared/errors", obj: @exercise %>
-  <%= form_for([current_user, @exercise]) do |f| %>
-    <div class="space">
-      <div class="row col-12">
-        <b><%= f.label :duration_in_min, "Duration (minutes)" %></b>
-      </div>
-
-      <div class="row col-md-8 col-lg-6">
-        <%= f.number_field :duration_in_min, class: "form-control" %>
-      </div>
+<%= render "shared/errors", obj: @exercise %>
+<%= form_for([current_user, @exercise]) do |f| %>
+  <div class="space">
+    <div class="row col-12">
+      <b><%= f.label :duration_in_min, "Duration (minutes)" %></b>
     </div>
 
-    <div class="space">
-      <div class="row col-12">
-        <b><%= f.label :workout %></b>
-      </div>
+    <div class="row col-md-8 col-lg-6">
+      <%= f.number_field :duration_in_min, class: "form-control" %>
+    </div>
+  </div>
 
-      <div class="row col-md-8 col-lg-6">
-        <%= f.text_area :workout, class: "form-control", rows: "10" %>
-      </div>
+  <div class="space">
+    <div class="row col-12">
+      <b><%= f.label :workout %></b>
     </div>
 
-    <div class="row col-12 mspace">
-      <%= f.submit class: "btn btn-success" %>
+    <div class="row col-md-8 col-lg-6">
+      <%= f.text_area :workout, class: "form-control", rows: "10" %>
     </div>
-  <% end %>
-</div>
+  </div>
+
+  <div class="row col-12 mspace">
+    <%= f.submit class: "btn btn-success" %>
+  </div>
+<% end %>
