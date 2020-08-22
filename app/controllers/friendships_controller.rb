@@ -10,9 +10,19 @@ class FriendshipsController < ApplicationController
   end
 
   def show
+    @friend = Friendship.find(params[:id]).friend
+    @exercises = @friend.exercises.paginate(page: params[:page], per_page: 5)
   end
 
   def destroy
+    @friendship = Friendship.find(params[:id])
+    friend = @friendship.friend.full_name
+    if @friendship.destroy
+      flash[:notice] = "#{friend} unfollowed"
+    else
+      flash.now[:alert] = "#{friend} could not be unfollowed"
+    end
+    redirect_to user_exercises_path(current_user)
   end
 
   private

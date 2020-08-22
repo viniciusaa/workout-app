@@ -1,0 +1,26 @@
+<%= render "shared/title", title: @friend.full_name + "'s Exercises", subtitle: "" %>
+
+<% if @exercises.any? %>
+  <div class="row col-7 offset-3 space">
+    <%= will_paginate @exercises %>
+  </div>
+
+  <% @exercises.each do |exercise| %>
+    <div class="row col-12 space">
+      <div class="card text-white bg-primary col-12">
+        <div class="card-header">
+          <p>Exercise details: <b><%= exercise.workout %></b></p>
+          <p>Duration: <b><%= exercise.duration_in_min %> minutes</b></p>
+          <p class="close-distance">Date: <b><%= exercise.created_at.to_date %></b></p>
+          <small><p class="close-distance">Expires in <%= time_to_expire(exercise) %></p></small>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <h3>There are no workouts do display</h3>
+<% end %>
+
+<div class="row col-12 xspace-top">
+  <%= link_to "Back", user_exercises_path(current_user), class: "btn btn-success link" %>
+</div>

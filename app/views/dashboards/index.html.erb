@@ -22,7 +22,9 @@
               <% if !(current_user.follows?(user)) %>
                 <%= link_to "follow", friendships_path(friend_id: user.id), method: :post, class: "btn btn-success follow-button" %>
               <% else %>
-                <%= link_to "unfollow", "#", class: "btn btn-danger follow-button" %>
+                <%= link_to "unfollow", friendship_path(current_user.current_friendship(user)),
+                    method: :delete, data: { confirm: "Are you sure?" },
+                    class: "btn btn-danger follow-button" %>
               <% end %>
             <% end %>
           </div>

@@ -61,10 +61,12 @@
         <div class="card bg-light col-10 space">
           <div class="card-body row">
             <div class="col-9">
-              <%= friend.full_name %>
+              <%= link_to friend.full_name, friendship_path(current_user.current_friendship(friend)) %>
             </div>
             <div class="col-3">
-              <%= link_to "unfollow", "#", class: "btn btn-danger follow-button" %>
+              <%= link_to "unfollow", friendship_path(current_user.current_friendship(friend)),
+                  method: :delete, data: { confirm: "Are you sure?" },
+                  class: "btn btn-danger follow-button" %>
             </div>
           </div>
         </div>
