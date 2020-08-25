@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :exercises
-  has_many :friendships
+  has_many :exercises, dependent: :destroy
+  has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships, class_name: "User"
-  has_one :room
+  has_one :room, dependent: :destroy
 
   validates :first_name, presence: true, length: { minimum: 2, maximum: 20 }
   validates :last_name, presence: true, length: { minimum: 2, maximum: 20 }

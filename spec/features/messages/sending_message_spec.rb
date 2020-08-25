@@ -11,8 +11,8 @@ RSpec.feature "Sending Message", :type => :feature do
 
     login_as(@user)
 
-    friendship.create(user: @second_user, friend: @user)
-    friendship.create(user: @third_user, friend: @user)
+    Friendship.create(user: @second_user, friend: @user)
+    Friendship.create(user: @third_user, friend: @user)
   end
 
   scenario "to followers shows in chatroom window" do
@@ -20,7 +20,7 @@ RSpec.feature "Sending Message", :type => :feature do
     click_link("My Lounge")
 
     expect(page).to have_content(@room_name)
-    fill_in("message_field"), with: "Hello"
+    fill_in"message_field", with: "Hello"
     click_button "Post"
 
     expect(page).to have_content("Hello")

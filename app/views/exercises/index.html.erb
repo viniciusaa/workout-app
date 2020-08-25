@@ -48,35 +48,41 @@
     <% end %>
   </div>
 
-<!-- Friends list -->
-
+  <!-- Right side -->
   <div class="offset-lg-1 col-lg-5 col-md-6 xspace">
-    <h3 class="xspace">My Friends</h3>
-    <% if current_user.friends.any? %>
-      <div class="row col-7 offset-3 space">
-        <%= will_paginate @friends, :param_name => 'friends_page' %>
-      </div>
+    <!-- Friends list -->
+    <div class="xspace">
+      <h3 class="xspace">My Friends</h3>
+      <% if current_user.friends.any? %>
+        <div class="row col-7 offset-3 space">
+          <%= will_paginate @friends, :param_name => 'friends_page' %>
+        </div>
 
-      <% @friends.each do |friend| %>
-        <div class="card bg-light col-10 space">
-          <div class="card-body row">
-            <div class="col-9">
-              <%= link_to friend.full_name, friendship_path(current_user.current_friendship(friend)) %>
-            </div>
-            <div class="col-3">
-              <%= link_to "unfollow", friendship_path(current_user.current_friendship(friend)),
-                  method: :delete, data: { confirm: "Are you sure?" },
-                  class: "btn btn-danger follow-button" %>
+        <% @friends.each do |friend| %>
+          <div class="card bg-light col-10 space">
+            <div class="card-body row">
+              <div class="col-9">
+                <%= link_to friend.full_name, friendship_path(current_user.current_friendship(friend)) %>
+              </div>
+              <div class="col-3">
+                <%= link_to "unfollow", friendship_path(current_user.current_friendship(friend)),
+                    method: :delete, data: { confirm: "Are you sure?" },
+                    class: "btn btn-danger follow-button" %>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
+      <% else %>
+        <p>No friends to display</p>
       <% end %>
-    <% else %>
-      <p>No friends to display</p>
-    <% end %>
+    </div>
+    <!-- Chat room -->
+    <div>
+      <h3><%= current_room.name %></h3>
+    </div>
   </div>
 </div>
 
-<div class="row col-12">
+<div class="row col-12" id="chat-window">
   <%= link_to "Back", root_path, class: "btn btn-success link" %>
 </div>
