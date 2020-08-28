@@ -78,8 +78,46 @@
     </div>
     <!-- Chat room -->
     <div>
-      <h3><%= current_room.name %></h3>
+      <div class="xspace">
+        <h3><%= current_room.name %></h3>
+      </div>
+
+      <div id="followers" class="xspace">
+        <div class="card border-secondary">
+          <div class="card-header">
+            <h5>Followers list</h5>
+            <% @followers.each do |follower| %>
+              <%= link_to follower.user.full_name, user_exercises_path(current_user, roomId: follower.user.room.id), class: "followers" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="card border-secondary">
+        <div class="card-header">
+          <h5>ChatBox</h5>
+          <div id="chat-box" data-channel="rooms" data-room-id=<% current_room.id %>>
+            <% @messages.each do |message| %>
+              <p><%= render partial: "shared/message", locals: {message: message} %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div id="form-box">
+        <%= form_for @message do |f| %>
+          <div class="form-row">
+            <div class="col-auto">
+              <%= f.text_field :body, id: "message_field", class: "form-control" %>
+            </div>
+            <div class="col-auto">
+              <%= f.submit "post", class: "btn btn-primary", id: "post-btn" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
+
   </div>
 </div>
 

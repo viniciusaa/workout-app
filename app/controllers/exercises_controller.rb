@@ -6,6 +6,9 @@ class ExercisesController < ApplicationController
     @friends = current_user.friends.paginate(page: params[:friends_page], per_page: 10)
     @search = current_user.exercises.search_exercise(params[:search_exercise])
     set_current_room
+    @message = Message.new
+    @messages = current_room.messages if current_room
+    @followers = Friendship.where(friend_id: current_user.id)
   end
 
   def new
