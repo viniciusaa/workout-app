@@ -79,7 +79,7 @@
     <!-- Chat room -->
     <div>
       <div class="xspace">
-        <h3><%= current_room.name %></h3>
+        <h3>Chanel: <%= current_room.name %></h3>
       </div>
 
       <div id="followers" class="xspace">
@@ -108,7 +108,7 @@
         <%= form_for @message do |f| %>
           <div class="form-row">
             <div class="col-auto">
-              <%= f.text_field :body, id: "message_field", class: "form-control" %>
+              <%= f.text_field :body, id: "message_field", class: "form-control", placeholder: "Enter message" %>
             </div>
             <div class="col-auto">
               <%= f.submit "post", class: "btn btn-primary", id: "post-btn" %>
